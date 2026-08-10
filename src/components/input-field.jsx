@@ -1,6 +1,7 @@
 import { List } from "lucide-react";
 
 import { cn } from "../utils/cn";
+import { Tooltip } from "./tooltip";
 
 export function InputField({ children }) {
   return (
@@ -20,14 +21,18 @@ export function InputFieldLabel({ children, ...props }) {
 
 export function BulletToggle({ checked }) {
   return (
-    <label
-      className={cn(
-        "cursor-pointer justify-self-start rounded-full p-1.5 hover:bg-zinc-800 has-focus-visible:bg-zinc-800 has-focus-visible:outline-2 has-focus-visible:outline-indigo-500",
-        checked && "bg-violet-600 hover:bg-violet-800 has-focus-visible:bg-violet-800",
-      )}
-    >
-      <input className="sr-only" type="checkbox" checked={checked} />
-      <List className={cn("text-zinc-400", checked && "text-zinc-100")} size={16} />
-    </label>
+    <Tooltip side="right" text={checked ? "Hide bullet points" : "Show bullet points"}>
+      <label
+        className={cn(
+          "block cursor-pointer justify-self-start rounded-full hover:bg-zinc-800 has-focus-visible:bg-zinc-800 has-focus-visible:outline-2 has-focus-visible:outline-indigo-500",
+          checked && "bg-violet-600 hover:bg-violet-800 has-focus-visible:bg-violet-800",
+        )}
+      >
+        <input className="sr-only" type="checkbox" checked={checked} />
+        <div className="p-1.5">
+          <List className={cn("text-zinc-400", checked && "text-zinc-100")} size={16} />
+        </div>
+      </label>
+    </Tooltip>
   );
 }
