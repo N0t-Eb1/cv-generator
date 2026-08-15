@@ -1,5 +1,7 @@
 export function Section({ children }) {
-  return <div className="relative grid gap-x-4 gap-y-5 @sm:grid-cols-2">{children}</div>;
+  return (
+    <div className="relative grid items-center gap-x-4 gap-y-5 @sm:grid-cols-2">{children}</div>
+  );
 }
 
 export function SectionHeader({ sectionName }) {
@@ -9,4 +11,8 @@ export function SectionHeader({ sectionName }) {
       <span className="text-lg font-bold text-zinc-200 capitalize">{sectionName}</span>
     </div>
   );
+}
+
+export function SectionWrapper({ children }) {
+  return <div className="@container p-6">{children}</div>;
 }
