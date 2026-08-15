@@ -16,7 +16,7 @@ export function Input({ as: Component = "input", className, ...props }) {
   return (
     <Component
       className={cn(
-        "w-full rounded-xs border border-zinc-800 bg-zinc-900 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 hover:border-zinc-700 focus:border-indigo-500",
+        "bg-bg-zinc-950 w-full rounded-xs border border-zinc-400 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 hover:border-zinc-300 focus:border-indigo-500",
         className,
       )}
       {...props}

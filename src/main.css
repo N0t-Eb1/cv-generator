@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/forms" {
+  strategy: "class";
+}
 
 body {
   font-family: "Inter Variable", sans-serif;

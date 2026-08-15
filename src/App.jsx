@@ -1,4 +1,5 @@
 import { InputField, InputFieldLabel, Input } from "./components/input-field";
+import { Section } from "./components/section";
 
 const mockData = {
   personalInfo: {
@@ -36,10 +37,12 @@ const mockData = {
 function App() {
   return (
     <div className="h-dvh bg-zinc-950 p-6 text-zinc-100">
-      <InputField>
-        <InputFieldLabel>name</InputFieldLabel>
-        <Input placeholder="Sal Khan" />
-      </InputField>
+      <Section>
+        <InputField>
+          <InputFieldLabel>name</InputFieldLabel>
+          <Input placeholder="Sal Khan" />
+        </InputField>
+      </Section>
     </div>
   );
 }
