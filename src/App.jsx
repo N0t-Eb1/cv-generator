@@ -1,6 +1,6 @@
 import { Checkbox } from "./components/checkbox";
 import { InputField, InputFieldLabel, Input } from "./components/input-field";
-import { Section } from "./components/section";
+import { Section, SectionHeader } from "./components/section";
 
 const mockData = {
   personalInfo: {
@@ -37,7 +37,8 @@ const mockData = {
 
 function App() {
   return (
-    <div className="h-dvh bg-zinc-950 p-6 text-zinc-100">
+    <div className="h-dvh bg-zinc-950 p-6">
+      <SectionHeader sectionName={"Personal Info"} />
       <Section>
         <InputField>
           <InputFieldLabel>name</InputFieldLabel>
