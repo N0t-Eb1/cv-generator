@@ -6,7 +6,3 @@
 body {
   font-family: "Inter Variable", sans-serif;
 }
-
-:focus-visible {
-  outline: 1px solid var(--color-indigo-500);
-}

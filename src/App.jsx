@@ -1,3 +1,4 @@
+import { Checkbox } from "./components/checkbox";
 import { InputField, InputFieldLabel, Input } from "./components/input-field";
 import { Section } from "./components/section";
 
@@ -42,6 +43,7 @@ function App() {
           <InputFieldLabel>name</InputFieldLabel>
           <Input placeholder="Sal Khan" />
         </InputField>
+        <Checkbox label={"parent"} />
       </Section>
     </div>
   );
