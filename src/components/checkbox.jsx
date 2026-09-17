@@ -6,7 +6,7 @@ export function Checkbox({ label, ...props }) {
         type="checkbox"
         {...props}
       />
-      <span className="font-medium text-zinc-300 capitalize">{label}</span>
+      <span className="font-medium text-zinc-300">{label}</span>
     </label>
   );
 }

@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/forms" {
   strategy: "class";
 }
+@custom-variant hocus (&:hover,&:focus-visible);
 
 body {
   font-family: "Inter Variable", sans-serif;
