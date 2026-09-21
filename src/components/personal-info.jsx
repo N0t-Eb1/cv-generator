@@ -1,4 +1,4 @@
-import { useCvStore } from "./cv";
+import { updateGeneral, useCvStore } from "./cv";
 import { Input, InputField, InputFieldLabel } from "./input-field";
 import { Section, SectionHeader, SectionWrapper } from "./section";
 
@@ -20,7 +20,12 @@ export function PersonalInfo() {
         {formConfig.map(({ name, label, placeHolder }) => (
           <InputField key={name}>
             <InputFieldLabel htmlFor={name}>{label}</InputFieldLabel>
-            <Input id={name} placeholder={placeHolder} value={personalInfo[name]} />
+            <Input
+              id={name}
+              placeholder={placeHolder}
+              onChange={e => updateGeneral("personalInfo", name, e.target.value)}
+              value={personalInfo[name]}
+            />
           </InputField>
         ))}
       </Section>

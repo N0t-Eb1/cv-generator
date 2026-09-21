@@ -1,7 +1,9 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { immer } from "zustand/middleware/immer";
 
-function getNewEducation() {
-  return {
+const sectionConstructs = {
+  education: () => ({
     id: crypto.randomUUID(),
     name: "",
     location: "",
@@ -9,11 +11,8 @@ function getNewEducation() {
     start: "",
     end: "",
     ongoing: false,
-  };
-}
-
-function getNewWorkExperience() {
-  return {
+  }),
+  workExperience: () => ({
     id: crypto.randomUUID(),
     name: "",
     location: "",
@@ -22,12 +21,12 @@ function getNewWorkExperience() {
     end: "",
     ongoing: false,
     responsibilities: [],
-  };
-}
+  }),
+};
 
 function getInitState() {
-  const initEducation = getNewEducation();
-  const initWorkExp = getNewWorkExperience();
+  const initEducation = sectionConstructs.education();
+  const initWorkExp = sectionConstructs.workExperience();
 
   return {
     personalInfo: {
@@ -49,4 +48,52 @@ function getInitState() {
   };
 }
 
-export const useCvStore = create(() => getInitState());
+export const useCvStore = create(persist(immer(() => getInitState())));
+
+export function updateGeneral(section, field, value) {
+  useCvStore.setState(s => {
+    s[section][field] = value;
+  });
+}
+
+export function updateSpecificObject(section, id, field, value) {
+  useCvStore.setState(s => {
+    s[section][id][field] = value;
+  });
+}
+
+export function addResponsibility(id) {
+  useCvStore.setState(s => {
+    s.workExperience[id].responsibilities.push("");
+  });
+}
+
+export function deleteResponsibility(id, i) {
+  useCvStore.setState(s => {
+    s.workExperience[id].responsibilities.splice(i, 1);
+  });
+}
+
+export function editResponsibility(id, i, value) {
+  useCvStore.setState(s => {
+    s.workExperience[id].responsibilities[i] = value;
+  });
+}
+
+export function addNewSection(section) {
+  const newSection = sectionConstructs[section]();
+
+  useCvStore.setState(s => {
+    s[section][newSection.id] = newSection;
+  });
+}
+
+export function deleteSection(section, id) {
+  useCvStore.setState(s => {
+    delete s[section][id];
+  });
+}
+
+export function reset() {
+  useCvStore.setState(() => getInitState());
+}

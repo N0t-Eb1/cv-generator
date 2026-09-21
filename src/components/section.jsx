@@ -21,21 +21,25 @@ export function SectionWrapper({ children }) {
   return <div className="@container border-zinc-300 px-4 py-6 [&+&]:border-t">{children}</div>;
 }
 
-export function DeleteBtn() {
+export function DeleteBtn({ ...props }) {
   return (
-    <button className="hocus:bg-red-600 ml-auto block cursor-pointer rounded p-2.5 outline-none">
+    <button
+      className="hocus:bg-red-600 hocus:border-red-600 ml-auto block cursor-pointer rounded border border-zinc-500 p-2.5 outline-none"
+      {...props}
+    >
       <Trash />
     </button>
   );
 }
 
-export function AddSectionBtn({ sectionName, className }) {
+export function AddSectionBtn({ sectionName, className, ...props }) {
   return (
     <button
       className={cn(
         "hocus:bg-purple-900 hocus:border-purple-900 mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-sm border border-dashed border-zinc-200 py-2 outline-none",
         className,
       )}
+      {...props}
     >
       <Plus size={18} /> <span className="capitalize">add {sectionName}</span>
     </button>
