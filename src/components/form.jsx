@@ -6,12 +6,12 @@ import { WorkExperience } from "./work-experience";
 
 export function Form() {
   return (
-    <>
+    <div className="overflow-y-auto">
       <PersonalInfo />
       <Summary />
       <Education />
       <WorkExperience />
       <Settings />
-    </>
+    </div>
   );
 }

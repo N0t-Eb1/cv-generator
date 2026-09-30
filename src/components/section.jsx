@@ -18,7 +18,9 @@ export function SectionHeader({ children }) {
 }
 
 export function SectionWrapper({ children }) {
-  return <div className="@container border-zinc-300 px-4 py-6 [&+&]:border-t">{children}</div>;
+  return (
+    <div className="@container border-zinc-300 px-4 py-6 lg:px-8 [&+&]:border-t">{children}</div>
+  );
 }
 
 export function DeleteBtn({ ...props }) {
